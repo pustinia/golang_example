@@ -9,5 +9,10 @@
         "mylibs",
         "simonchoi",
         "swaggerfiles"
-    ]
+    ],
+    "dist_folder": "dist",
+    "dist_prj_name": "myfirstgo",
+    "dist_app_name_mac": "app-darwin-amd64",
+    "dist_app_name_win": "app-win-amd64.exe",
+    "dist_app_name_linux": "app-linux-amd64",
 }

@@ -16,10 +16,10 @@
 					"GOARCH": "amd64"
 				}
 			},
-			"command": "go build -v ${file}",
+			"command": "go build -o ${workspaceFolder}/${config:dist_folder}/${config:dist_prj_name}/${config:dist_app_name_linux} ${workspaceFolder}/src/${config:dist_prj_name}/main.go",
 			"dependsOrder": "parallel",
 			"dependsOn": [
-				"build for window"
+				"build for window", "build for mac"
 			]
 		},
 		{
@@ -36,7 +36,7 @@
 					"PYTHONIOENCODING": "utf-8"
 				}
 			},
-			"command": "go build -v ${file}",
+			"command": "go build -o ${workspaceFolder}/${config:dist_folder}/${config:dist_prj_name}/${config:dist_app_name_win} ${workspaceFolder}/src/${config:dist_prj_name}/main.go",
 		},
 		{
 			"label": "build for mac",
@@ -51,7 +51,7 @@
 					"GOARCH": "amd64",
 				}
 			},
-			"command": "go build -o ${workspaceFolder}/dist/myfirstgo/app-darwin-amd64 ${workspaceFolder}/src/myfirstgo/main.go",
+			"command": "go build -o ${workspaceFolder}/${config:dist_folder}/${config:dist_prj_name}/${config:dist_app_name_mac} ${workspaceFolder}/src/${config:dist_prj_name}/main.go",
 		},
 	]
 }
