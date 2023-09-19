@@ -1,0 +1,84 @@
+{
+	"version": "2.0.0",
+	"command": "go",
+	"cwd": "${workspaceFolder}",
+	"tasks": [
+		{
+			"label": "build for linux+window+macos",
+			"type": "shell",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"options": {
+				"env": {
+					"GOOS": "linux",
+					"GOARCH": "amd64"
+				}
+			},
+			"command": "go build -v ${file}",
+			"dependsOrder": "parallel",
+			"dependsOn": [
+				"build for window"
+			]
+		},
+		{
+			"label": "build for window",
+			"type": "shell",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"options": {
+				"env": {
+					"GOOS": "windows",
+					"GOARCH": "amd64",
+					"PYTHONIOENCODING": "utf-8"
+				}
+			},
+			"command": "go build -v ${file}",
+		},
+		{
+			"label": "build for mac",
+			"type": "shell",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"options": {
+				"env": {
+					"GOOS": "darwin",
+					"GOARCH": "amd64",
+				}
+			},
+			"command": "go build -o ${workspaceFolder}/dist/myfirstgo/app-darwin-amd64 ${workspaceFolder}/src/myfirstgo/main.go",
+		},
+	]
+}
+// go build -x -o /Users/simonchoi/workspace_vscode/golang/dist/myfirstgo/app-darwin-amd64 /Users/simonchoi/workspace_vscode/golang/src/myfirstgo/main.go
+//SET GOOS=darwin& SET GOARCH=arm64& go build -o ../dist/app-macos-arm64.exe main.go
+// env GOOS=darwin GOARCH=amd64 go build -v company.go 
+// GOOS=linux GOARCH=amd64 go build -o ../../dist/app-linux-arm64 main.go
+
+/*
+{
+	"label": "go: build package ${fileDirname}",
+	//"command": "build",
+	"args": [
+		"build",
+		"-x",
+		//"-v",
+		// "-o ${workspaceFolder}/dist",
+		"${workspaceFolder}/src/myfirstgo/main.go"
+		//"${fileDirname}"
+	],
+	"options": {
+		"cwd": "${workspaceFolder}"
+	},
+	"problemMatcher": [
+		"$go"
+	],
+	"group": "build",
+	"detail": "cd /Users/simonchoi/workspace_vscode/golang; go build ${fileDirname}"
+}
+*/

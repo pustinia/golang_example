@@ -1,0 +1,20 @@
+package httpserver
+
+import (
+	"net/http"
+	"testing"
+)
+
+// make xxxx_test.go file
+// use Testxxxxx method
+
+func TestCreateHttpServer(t *testing.T) {
+	port := ":8090"
+	// server 먼저 만들어야지... 비동기 ? 서버에서 결과가 없잖수..
+	want := 200
+	// resp.StatusCode => int
+	resp, err := http.Get("http://127.0.0.1" + port)
+	if resp.StatusCode != want {
+		t.Errorf("CreateHttpServer() = %d, want %d", resp.StatusCode, want)
+	}
+}
