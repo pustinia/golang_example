@@ -73,10 +73,13 @@ go work use ./modules/myhttpserver
 - shell 명령어를 수행하기
 - webhook 사용하기
 
-- task.json 에서 build 명령어 추가 완료.. mac만 했다 !!! 끝... 
-
-go env -w GO111MODULE=auto.  ==> 이걸로 변경
-
+- task.json 에서 build 명령어 추가 완료.. mac, windows, linux 모두 확인
+- build 하면서 error 발생
+```
 src/myfirstgo/main.go:4:2: package myfirstgo/modules/myhttpserver is not in GOROOT 
 (/usr/local/Cellar/go/1.20.7/libexec/src/myfirstgo/modules/myhttpserver)
 src/myfirstgo/main.go:5:2: package myfirstgo/modules/mylibs is not in GOROOT (/usr/local/Cellar/go/1.20.7/libexec/src/myfirstgo/modules/mylibs)
+```
+- go env -w GO111MODULE=auto  ==> 이걸로 변경
+
+
